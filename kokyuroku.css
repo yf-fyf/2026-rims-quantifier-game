@@ -1,0 +1,305 @@
+/* MathDeck's neutral palette for the Kokyuroku interface.
+   Blue and red-brown name the prover and the falsifier: their values, their names and the
+   results they win (a round, a replay, the global conclusion). Selection and progress stay
+   neutral. Magenta marks a counterexample (where a condition or a candidate fails), as in the
+   figure, and an undecided search is ochre and dashed. */
+:root {
+  --ink: #111111;
+  --muted: #606060;
+  --line: #dedede;
+  --paper: #f4f4f4;
+  --green: #404040;
+  --control-line: #b0b0b0;
+  --neutral-surface: #f7f7f7;
+  --neutral-highlight: #ededed;
+  --selected-line: #404040;
+  --undecided-ink: #6b4e00;
+  --undecided-surface: #fff8e1;
+  --prover-surface: #eaf1fb;
+  --opponent-surface: #fbf0e6;
+  --breaks: #b8236e;
+  --breaks-surface: #fcf0f6;
+}
+html { scroll-padding-top: calc(var(--band-height, 0px) + 12px); }
+
+.site-header { background: #404040; }
+.site-header span:not(.mode) { color: #e0e0e0; }
+.site-header .mode { border-color: #b0b0b0; }
+a { color: #404040; }
+
+.section-label, .fixed-parameters strong, .signature, .event-heading,
+.proof-turn strong, .original-formula-band strong, .step-action, .step-tag,
+label, summary, button, .button { color: #404040; }
+input, select, button, .button, .step-tag { border-color: var(--control-line); }
+input:focus, select:focus, button:focus-visible, a:focus-visible, summary:focus-visible,
+.formula:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #767676; outline-offset: 2px;
+}
+
+button:hover, .button:hover, .count, .entry-tabs, .mode-tabs,
+.spectate-round.active { background: var(--neutral-highlight); }
+button.primary:hover { background: #292929; }
+.entry-tabs [aria-selected=true], .mode-tabs [aria-selected=true] { color: #404040; }
+.entry-tabs [aria-selected=true] { box-shadow: 0 1px 3px #0002; }
+.mode-tabs [aria-selected=true] { box-shadow: 0 1px 4px #0002; }
+.spectate-round.active { box-shadow: inset 3px 0 #404040; }
+.spectate-round:focus-visible { outline: 3px solid #767676; outline-offset: -3px; }
+
+.card { box-shadow: 0 2px 3px #00000004; }
+.original-formula-band { box-shadow: 0 3px 10px #0000000b; }
+details, .witness, .proof-turn, .formula-chain .ai-calculation { border-color: var(--line); }
+.lesson-progress, .terminal-evaluation { border-color: var(--line); }
+.lesson-progress, .terminal-evaluation, .secondary, .formula-stage, .turn-chip.done,
+.rounds tr.provisional, .metric, .candidate-stage, .evidence-node,
+.spectate-strategy, .spectate-round, .problem-preview { background: var(--neutral-surface); }
+.rounds th, .badge { background: var(--paper); }
+.plot-card canvas { background: #fcfcfc; }
+.formula-chain .formula-step { background: #fafafa; }
+.formula-chain .revealed-after { background: var(--neutral-surface); border-left-color: #8c8c8c; }
+.dependency-arrow { color: #404040; }
+
+/* Current and selected items: a dark frame on light gray, never a role colour. */
+.turn-chip.active { border-color: var(--selected-line); background: var(--neutral-highlight); }
+.formula-chain .current, .move.current { background: #f2f2f2; }
+.move.current { border-color: var(--selected-line); }
+.rounds tr.selected { background: var(--neutral-highlight); }
+.rounds tr.source, .ce.source { outline-color: var(--selected-line); }
+.candidate-list button[aria-pressed=true] { background: var(--neutral-highlight); outline: 2px solid var(--selected-line); outline-offset: 1px; }
+.proof-turn.active { background: var(--neutral-highlight); outline-color: var(--selected-line); }
+
+/* Status boxes. Progress: no rule. One round: a left rule. Global conclusion: a full frame. */
+.status:not(.win, .loss, .verified, .outside, .unknown) {
+  background: var(--paper); color: var(--ink); border-left-color: transparent;
+}
+.status.win, .status.loss { background: var(--neutral-surface); border-left: 4px solid #404040; }
+.status.outside { background: var(--neutral-surface); border-left: 4px dotted #404040; }
+.status.verified { background: var(--neutral-highlight); border-color: #404040; }
+#search-status.status.verified { background: transparent; border-left-color: transparent; padding-left: 0; }
+#guarantee.status.verified {
+  background: #ffffff; border: 2px solid #111111; border-radius: 6px; padding: 12px 14px; font-weight: 600;
+}
+#guarantee.status.verified.winner-prover { border-color: var(--prover); background: #f7faff; }
+#guarantee.status.verified.winner-opponent { border-color: var(--opponent); background: #fffaf6; }
+#guarantee.status.verified::before {
+  content: "全域検証済み"; display: inline-block; margin-right: 10px; padding: 1px 8px; border-radius: 4px;
+  background: #404040; color: #ffffff; font-size: 12px; font-weight: 700;
+}
+.status.unknown, .unknown-reason {
+  background: var(--undecided-surface); color: var(--ink);
+  border: 2px dashed var(--undecided-ink); border-radius: 6px;
+}
+/* Round results: the winner's role colour, solid for the prover and dashed for the falsifier. */
+.badge.win, .badge.loss { font-weight: 650; }
+.badge.win { color: var(--prover); background: var(--prover-surface); border: 1px solid var(--prover); }
+.badge.loss { color: var(--opponent); background: var(--opponent-surface); border: 1px dashed var(--opponent); }
+.status.winner-prover { background: var(--prover-surface); border-left: 4px solid var(--prover); }
+.status.winner-opponent { background: var(--opponent-surface); border-left: 4px dashed var(--opponent); }
+.spectate-round .log-result.role-prover, .spectate-round .log-result.role-opponent {
+  padding: 1px 7px; border-radius: 4px; font-weight: 650;
+}
+.spectate-round .log-result.role-prover { background: var(--prover-surface); border: 1px solid var(--prover); }
+.spectate-round .log-result.role-opponent { background: var(--opponent-surface); border: 1px dashed var(--opponent); }
+.role-name { font-weight: 650; }
+.role-true, .role-false { color: #111111; font-weight: 700; }
+.ce { background: var(--breaks-surface); border: 1px solid #ecc6d9; border-left: 4px solid var(--breaks); }
+.candidate-list .candidate-verified { border: 2px solid #404040; }
+.candidate-list .candidate-counterexample, .candidate-list .candidate-sample-rejected { color: var(--breaks); border-color: #ecc6d9; }
+.candidate-list .candidate-unknown { border: 2px dashed var(--undecided-ink); color: var(--undecided-ink); background: var(--undecided-surface); }
+
+/* Roles without colour: the prover's values are underlined solid, the falsifier's dashed. */
+.rounds .role-prover, .rounds .role-opponent,
+.spectate-round span.role-prover:not(.log-result), .spectate-round span.role-opponent:not(.log-result),
+.spectate-strategy .math.role-prover, .spectate-strategy .math.role-opponent,
+.legend .role-prover, .legend .role-opponent {
+  display: inline-block; width: fit-content; padding-bottom: 1px; border-bottom: 2px solid currentColor;
+}
+.rounds .role-opponent, .spectate-round span.role-opponent:not(.log-result),
+.spectate-strategy .math.role-opponent, .legend .role-opponent { border-bottom-style: dashed; }
+/* Values in the round table stay one per line. */
+.rounds div.role-prover, .rounds div.role-opponent, .spectate-strategy .math.role-prover,
+.spectate-strategy .math.role-opponent { display: table; margin-bottom: 3px; }
+
+#preview-description:empty, #play-state:empty, #mode-help:empty,
+#lesson:has(#tab-individual[aria-selected="true"]) #mode-help { display: none; }
+
+/* A formula that continues to the right fades at its edge. */
+.formula-continues {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+}
+
+/* 題材と条件: topic-grouped list on the left, the chosen example on the right. */
+.example-picker { display: grid; grid-template-columns: minmax(240px, 1fr) minmax(0, 1.6fr); gap: 16px; margin-top: 12px; }
+.picker-list { display: flex; flex-direction: column; gap: 12px; }
+.picker-group { display: flex; flex-direction: column; gap: 4px; }
+.picker-group-title { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 2px; }
+.picker-item { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; width: 100%; text-align: left; font-weight: 600; }
+.picker-item[aria-pressed=true] { border: 2px solid #404040; background: var(--neutral-highlight); }
+.picker-prefix { font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.picker-detail { background: var(--neutral-surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; min-width: 0; align-self: start; }
+.picker-topic { font-size: 12px; }
+.picker-title { font-size: 19px; margin: 4px 0 8px; }
+.picker-formula { font-size: 17px; margin: 6px 0 12px; }
+.picker-error { color: var(--ink); }
+.picker-polarity { display: inline-flex; gap: 0; padding: 3px; margin: 0 0 14px; border: 0; border-radius: 8px; background: var(--neutral-highlight); }
+.picker-polarity legend { float: left; font-size: 13px; color: #404040; margin: 6px 10px 0 4px; padding: 0; }
+.picker-polarity label { display: inline-flex; align-items: center; margin: 0; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.picker-polarity { position: relative; }
+.picker-polarity input { position: absolute; left: 0; top: 0; width: 1px; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
+.picker-polarity label:has(input:checked) { background: #ffffff; box-shadow: 0 1px 3px #0002; color: #111111; }
+.picker-polarity label:has(input:focus-visible) { outline: 3px solid #767676; outline-offset: 2px; }
+.picker-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.advanced-setup { margin-top: 16px; }
+/* 詳細設定: the general form above the parameter fields names what each field is. */
+.parameter-form { font-size: 13px; color: var(--muted); margin: 10px 0 12px; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.parameter-form .katex { font-size: 1.15em; color: var(--ink); margin-left: 8px; }
+
+/* Loading state. The picker is in the HTML from the start; until the app is ready the formula is a
+   grey bar in a box of the formula's reserved height and the open button reads 準備中…, so nothing
+   moves when the content arrives. */
+/* 5.45em = the tallest example formula (the jump example's cases, 92.1px at 17px), so neither loading nor switching examples moves the layout. */
+.picker-formula { min-height: 5.45em; }
+.skeleton { display: block; border-radius: 6px; background: linear-gradient(90deg, #e8e8e8 25%, #f3f3f3 50%, #e8e8e8 75%);
+  background-size: 200% 100%; animation: skeleton-pulse 1.4s ease-in-out infinite; }
+.skeleton-formula { width: min(16em, 80%); height: 1.9em; margin: .9em 0 .6em; }
+@keyframes skeleton-pulse { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+.picker-formula.shown > * { animation: picker-fade .18s ease-out; }
+@keyframes picker-fade { from { opacity: 0; } }
+#picker-open { display: inline-grid; place-items: center; }
+#picker-open > span { grid-area: 1 / 1; }
+.picker-detail[aria-busy=true] #picker-open .label-ready,
+.picker-detail:not([aria-busy=true]) #picker-open .label-wait { visibility: hidden; }
+#picker-customize.unavailable { visibility: hidden; }
+/* The startup notice floats over the page, so showing or hiding it never moves the layout. */
+#static-status[data-quiet] { position: fixed; z-index: 20; left: 16px; right: 16px; bottom: 16px; max-width: 640px;
+  margin: 0 auto; padding: 12px 16px; border-radius: 8px; font-size: 13px; background: var(--undecided-surface);
+  color: var(--ink); border: 1px solid #e0c98a; box-shadow: 0 4px 14px #0002; }
+#static-status[data-quiet].error { background: #fff1e6; color: #7e3b1c; border-color: #dca37a; }
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+  .picker-formula.shown > * { animation: none; }
+}
+.advanced-setup > summary { font-weight: 700; }
+.advanced-setup .entry-tabs { display: none; }
+footer .kokyuroku-version { margin-left: 12px; }
+
+/* Skolem normal form: folded under Φ/Ψ in the band, and the verified instance in 一般対局. */
+.skolem-band { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 6px; }
+.skolem-band > summary, .skolem-instance > summary { font-size: 12px; font-weight: 600; color: #404040; cursor: pointer; }
+.skolem-band[open] { max-height: 45vh; overflow-y: auto; }
+.skolem-form { margin: 8px 0 4px; }
+.skolem-label { display: block; font-size: 12px; color: var(--muted); }
+.skolem-form .formula, .skolem-instance .formula { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.skolem-mapping { font-size: 13px; color: var(--muted); overflow-x: auto; overflow-y: hidden; }
+.skolem-instance { margin: 10px 0; }
+
+/* 一般対局: the search as a flow, and what 全域検証 means. */
+.metrics:has(.search-flow) { display: block; }
+.search-flow { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--neutral-surface); }
+.search-flow-title { font-size: 12px; font-weight: 700; color: #404040; margin: 0 0 8px; }
+.search-flow ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.flow-step { position: relative; display: flex; flex-direction: column; gap: 2px; background: #ffffff; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font-size: 12px; }
+.flow-step + .flow-step::before { content: "▶"; position: absolute; left: -17px; top: 50%; transform: translateY(-50%); color: #8c8c8c; font-size: 11px; }
+.flow-name { color: var(--muted); font-weight: 600; }
+.flow-step > strong { font-size: 18px; color: var(--ink); }
+.flow-step small { color: var(--muted); }
+.flow-outcome { display: flex; justify-content: space-between; gap: 8px; padding: 1px 6px; border-radius: 4px; }
+.flow-outcome strong { font-size: 14px; }
+.flow-counterexample { color: var(--breaks); background: var(--breaks-surface); }
+.flow-unknown { color: var(--undecided-ink); background: var(--undecided-surface); border: 1px dashed var(--undecided-ink); }
+.flow-accepted { border: 2px solid #404040; }
+.flow-none { border: 2px dashed var(--undecided-ink); background: var(--undecided-surface); }
+.search-flows { display: flex; flex-direction: column; gap: 10px; }
+.metrics:has(.search-flows) { display: block; }
+.flow-loop { font-size: 12px; color: var(--breaks); margin: 8px 0 0; }
+.verification-help { margin: 12px 0; font-size: 13px; }
+.verification-help > summary, .verification-detail > summary { font-weight: 600; color: #404040; cursor: pointer; }
+.verification-help p, .verification-help li { line-height: 1.7; }
+.verification-detail { margin: 6px 0 0 14px; }
+@media (max-width: 820px) {
+  .search-flow ol { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .flow-step + .flow-step::before { content: "▼"; left: 50%; top: -15px; transform: translateX(-50%); }
+}
+@media (max-width:820px) {
+  .example-picker { grid-template-columns: minmax(0, 1fr); }
+  .picker-detail { padding: 14px; }
+  footer .kokyuroku-version { display: block; margin: 6px 0 0; }
+}
+
+/* 対局の図: the legend under the figure. Teal = allowed region, magenta = the condition fails,
+   grey = not covered by the condition. Only the figure uses these colours. */
+.plot-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 10px 0 0; padding: 0; font-size: 12px; color: #333333; }
+.plot-legend li { display: flex; align-items: center; gap: 6px; }
+.plot-mark { display: inline-block; flex: none; width: 18px; height: 12px; box-sizing: border-box; }
+.plot-mark-band { background: rgba(47,125,107,0.10); border-top: 1.5px solid #2f7d6b; border-bottom: 1.5px solid #2f7d6b; }
+.plot-mark-box { background: rgba(47,125,107,0.20); border: 2px solid #2f7d6b; }
+.plot-mark-center { height: 0; border-top: 1.5px dotted #2f7d6b; }
+.plot-mark-ok { width: 7px; height: 7px; border-radius: 50%; background: #262626; margin: 0 5px; }
+.plot-mark-off { width: 18px; background: rgba(0,0,0,0.07); border: 1px solid #cccccc; }
+.plot-mark-bad { width: 9px; height: 9px; margin: 0 4px; border: 2px solid #b8236e; background: #ffffff; transform: rotate(45deg); }
+.plot-mark-ring { width: 13px; height: 13px; border: 2px solid #111111; border-radius: 50%; margin: 0 2px; }
+.plot-mark-line { height: 0; border-top: 2.5px solid #262626; }
+.plot-mark-base { height: 0; border-top: 2px solid #8a8a8a; }
+.plot-mark-bound { height: 0; border-top: 2.5px dashed #2f7d6b; }
+.plot-mark-badline { height: 0; border-top: 3px solid #b8236e; }
+.plot-mark-badfill { background: rgba(184,35,110,0.18); border: 1px solid #b8236e; }
+.plot-mark-hole { width: 10px; height: 10px; border: 2px solid #262626; border-radius: 50%; margin: 0 4px; background: #ffffff; }
+
+/* 候補の履歴: status chips, overview strip, one scrolling list (ts/app/kokyuroku/history.ts). */
+.history-filter { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.history-filter-label { font-size: 12px; color: var(--muted); margin-right: 2px; }
+.history-chip { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: #fff; }
+.history-chip strong { font-variant-numeric: tabular-nums; }
+.history-chip[aria-pressed=true] { background: var(--neutral-highlight); outline: 2px solid var(--selected-line); outline-offset: 1px; }
+.history-chip[aria-pressed=false] { color: var(--muted); border-style: dashed; }
+.history-chip:disabled { opacity: .45; cursor: default; }
+.history-chip.chip-counterexample[aria-pressed=true] { color: var(--breaks); background: var(--breaks-surface); }
+.history-chip.chip-unknown[aria-pressed=true] { color: var(--undecided-ink); background: var(--undecided-surface); }
+.history-overview { margin: 2px 0 8px; }
+.history-overview canvas { display: block; width: 100%; height: 34px; cursor: pointer; }
+.history-overview-axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.history-list { position: relative; max-height: 8.6em; overflow-y: auto; align-content: flex-start; padding: 4px; border: 1px solid var(--line); border-radius: 6px; }
+.candidate-stage[aria-busy=true] { opacity: .6; transition: opacity .15s .1s; }
+.history-controls label:first-child { width: auto; }
+.history-outcome { margin: 0 0 10px; padding: 6px 10px; font-size: 13px; border-left: 4px solid var(--selected-line); background: var(--neutral-surface); }
+.history-outcome[data-accepted=false] { border-left-color: var(--undecided-ink); background: var(--undecided-surface); color: var(--undecided-ink); }
+.history-outcome:empty { display: none; }
+.history-filter { margin-bottom: 8px; }
+
+/* 合成した戦略から生成した証明: a textbook proof with the strategy's turns in the margin (kokyuroku/proof-text.ts). */
+.natural-proof .proof-opening { margin: 0 0 4px; }
+.natural-proof .proof-head { font-weight: 700; margin: 10px 0 4px; }
+.natural-proof .proof-lines { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 12px; align-items: baseline; }
+.natural-proof .proof-line { display: contents; }
+.natural-proof .proof-label { font-size: 12px; font-weight: 650; white-space: nowrap; color: var(--muted); text-align: right; }
+.natural-proof .proof-skolem { display: block; font-weight: 400; font-size: 11px; }
+.natural-proof .proof-turn-link { text-decoration: none; padding: 0 3px; border-bottom: 2px solid; }
+.natural-proof .proof-turn-link.role-prover { color: var(--prover); }
+.natural-proof .proof-turn-link.role-opponent { color: var(--opponent); border-bottom-style: dashed; }
+.natural-proof .proof-body { min-width: 0; line-height: 1.75; }
+.natural-proof .proof-body p { margin: 4px 0 0; }
+.natural-proof .proof-body .katex-display { margin: 4px 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.proof-strategy { margin: 12px 0 0; font-size: 13px; }
+/* 詳細設定 holds only the parameterised problems; the sample/custom tabs are not needed there. */
+#advanced-setup .entry-tabs { display: none; }
+.proof-checked { margin: 10px 0 0; padding: 6px 10px; font-size: 13px; border-left: 4px solid var(--selected-line); background: var(--neutral-surface); }
+
+/* English / Japanese (lang.js). */
+.header-end { display: flex; align-items: center; gap: 12px; }
+.language-switch { display: inline-flex; border: 1px solid #b0b0b0; border-radius: 6px; overflow: hidden; }
+.language-switch button { background: transparent; color: #e0e0e0; border: 0; border-radius: 0; padding: 3px 10px; font-size: 12px; min-height: 0; }
+.language-switch button + button { border-left: 1px solid #b0b0b0; }
+.language-switch button[aria-pressed=true] { background: #f2f2f2; color: #262626; font-weight: 600; }
+.language-switch button:focus-visible { outline: 2px solid #ffffff; outline-offset: -3px; }
+/* Generated labels in English (lang.js sets <html lang>). */
+html:lang(en) #guarantee.status.verified::before { content: "Globally verified"; }
+html:lang(en) .plot-card>summary::after { content: "show / hide"; }
+/* English text in a Latin face first (CJK faces set a narrow space after math). */
+html:lang(en) body { font-family: "Noto Sans", "Segoe UI", "Helvetica Neue", Arial, "Noto Sans CJK JP", "Yu Gothic", system-ui, sans-serif; }
+/* Narrow screens: the header wraps instead of breaking the labels. */
+.site-header { flex-wrap: wrap; row-gap: 8px; }
+.site-header strong, .language-switch button, .site-header .mode { white-space: nowrap; }
+
+/* One way back to the conditions: 「条件を変更」 reopens 題材と条件 with the current example chosen,
+   where 「この例の値を変える」 does what the lesson's 「この条件をカスタム」 did. */
+#customize-current { display: none; }

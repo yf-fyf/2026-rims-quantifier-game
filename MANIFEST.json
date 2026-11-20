@@ -1,0 +1,473 @@
+{
+  "distribution": "rims-kokyuroku-site",
+  "release_date": "2026-11-20",
+  "runtime": {
+    "kernel": "TypeScript (ts/kernel)",
+    "bundler": {
+      "esbuild": "0.28.2"
+    },
+    "highs": "1.15.4"
+  },
+  "hosting": "static HTTP(S); no application backend or external CDN",
+  "version": "kokyuroku-43",
+  "source_digest": "edab0aa414be6735a44f3f39b025753db1cd8412871e6b048127a8a4b44d17ba",
+  "source_sha256": {
+    "app-next/public/index.html": "4773e2ffbfdaed48a5371b172f3247363a0edd4020fc3c81876a92f8d070925d",
+    "app-next/public/style.css": "04d46fe43c8e88d1f93466dbd688153530e2f537b816ebbe58031a6fea46e473",
+    "app-next/catalog.json": "e8ab94ab3c1a958d8f6faee0ddc180ceb04595ced50c227baa42f8f8fc64bcfc",
+    "app-next/registered/algorithms-linear-scan.json": "48345fe3807ce9a58932c7880522ebd158daa43bdb8d36ebb9e3e7a26be32dfd",
+    "app-next/registered/algorithms-nested-loop.json": "f56a37d4c4b4777aac1eb1a85ac5b950e8a9a2b6a1c54213079863dab1438588",
+    "app-next/registered/algorithms-triangular-loop.json": "1f330493a7ae569a01ff253c306d4baa688e56a06f98d79ec2b7a3e528236008",
+    "app-next/registered/algorithms-wrong-linear-bound.json": "b487d64036cc1060047a6f0bb01f8b6ef0d6962228dcabc5aa7e0036e12477fa",
+    "app-next/registered/big-o-n-log-n.json": "e9c80aabe95ecb771df60142494470b312ef5a4a2e6071fd7435dadb397b6313",
+    "app-next/registered/calculus-removable-discontinuity.json": "7d4d12c0585de34bdd889a0f747874c99d33efd94d334e17af939c7b14a6e09b",
+    "app-next/registered/calculus-sequence-limit.json": "03fc7233055a80e9312f2d23ae24fa939a09f0a7daf79624348b68d07a797356",
+    "app-next/registered/calculus-sequence-wrong-limit.json": "4c12f85e7044ae801cf12251911f164c09d8ddb5ee2098f5de659b9e8417f5b3",
+    "app-next/registered/calculus-square-continuity.json": "12315a3389acc723d9a16c8bff83b6da6b6abba65cac39c14ed4018fb4ada5de",
+    "benchmarks/registered/big-o-cubic.json": "29a3c83c97da67a483ab6060293f9852bbafe102df74105b25f4034956cdab55",
+    "benchmarks/registered/big-o-linear.json": "0cc65d5e31c8e205c948231e4dadf26cae9c5f90a1d30466de2c43d224b2ac59",
+    "benchmarks/registered/big-o-quadratic.json": "743d3b0b5bc66dc14260ef7936ca60674ded6bf204e74a1a43381be0b4f957cf",
+    "benchmarks/registered/boolean-alternating.json": "4fae90d1b9690f3f78ff49edc37e0c3721fd970f191441696befc121f50f4b81",
+    "benchmarks/registered/boolean-empty-guard.json": "b044c972799928b24e166bdf40f12ec5b6300d1392fcc4d016425b3158aa8e62",
+    "benchmarks/registered/boolean-equality.json": "85e4ea2e0fd83ee363678e383bf9eca7548cd31184cf3517d0086d1bae6dc474",
+    "benchmarks/registered/boolean-opposite.json": "696f136538c2c053bcab6fd0684969eabf40b4a06a088f1a925b434bf1823845",
+    "benchmarks/registered/boolean-order.json": "32861cff59a6bc66677910b03eb267cda54c85a105f5afd7b1c16c5160680a4b",
+    "benchmarks/registered/epsilon-delta-jump.json": "a6817f3feb352638d65edf1adf4f9ee3f2713afc55cbab47a282f1cba2b6dc44",
+    "benchmarks/registered/epsilon-delta-polynomial.json": "f141b06e4227ccae4eba88ae7830ba1a2bb7c2e76c702471075bce362d3c0a69",
+    "benchmarks/registered/epsilon-n.json": "e3b694fa5c1d6db5d4396802eb06e4698c77cb7262920f829ee97d4bbb5ee80c",
+    "benchmarks/registered/finite-colors-five-order.json": "2863c2529e235a6ce1170d274ec013391e46e11031b6adb36930428e27309aa7",
+    "benchmarks/registered/finite-colors-five.json": "03ffa15ab6042b7cd6c8f136d10a26bd6b5f60ea2e4d779061a303977295b3ef",
+    "benchmarks/registered/finite-colors-four.json": "e87b0cdd46c1db8dbd942e11d408620e70433417a8f65d2ddc1523e65f918ebb",
+    "benchmarks/registered/finite-colors-singleton.json": "a9c4d05d0b98d7dc59123258c12490199705bb8c57f7db74c72ce1577af9ce85",
+    "benchmarks/registered/finite-colors.json": "ccc99b215d06191223c9f3035d489ee2991de522d2c1d0720cc2bf81c5ce2bf7",
+    "package.json": "9ab3d5112b650f54c318776ffe921a1ff1b7b1e3bea92fdaf48bc9ff4fbe21b2",
+    "pnpm-lock.yaml": "f1a16c9901d6eece717ba283a434c6634395be494f5daa930f3039401dc54635",
+    "ts/app/app.ts": "87304f00c7ab5bf48d3b8f3b9b0d89a9c52b640969a204cdd470ff15e358d135",
+    "ts/app/formula-chain.ts": "c6f00473780b5fe4e3a28b10e7417a41a38ba8f7b78c185d2f7efeb0875a007d",
+    "ts/app/globals.d.ts": "3ad7613c0a78763b4d0922732572abb2cf0e87909676e259ee7a1c1735c809d5",
+    "ts/app/i18n.ts": "1a0046378583dff29b63fa6839c747f316c8e2f0ae9080b8d84eb355adc864a2",
+    "ts/app/kokyuroku/en.ts": "c56d0fe25a4afc5ae63867b4264a1a7b59fd5f2b9d1598038cbcd60e450ff6cc",
+    "ts/app/kokyuroku/history.ts": "982b2cb376ec55f6f4c73fc272ab15136db1ef4ba477117c2f81ee19ece2bc3b",
+    "ts/app/kokyuroku/lang.ts": "c78714b8030319a364501fb470859bf9573e25b304e37f897f7bde410cebae19",
+    "ts/app/kokyuroku/main.ts": "7109a3dfe7516c5c43d29f550309282f76c1f3f18214f261b8e15282a9b9441d",
+    "ts/app/kokyuroku/picker-markup.ts": "69d0e50d5bce69258f3ca6a938186b586c5ce8d9f00e6742c63f623249e80520",
+    "ts/app/kokyuroku/picker.ts": "229c199018189e0b2dfaf2eb8d7dd7b7220ad5f704e4a71d23353fc178b57d5d",
+    "ts/app/kokyuroku/profile.ts": "00234b468836bd793b2e48e90e40abc2ebb715ccefd17b601297d93c3499e8ef",
+    "ts/app/kokyuroku/proof-text.ts": "bec6e39e3e8ab8cddd6624ba35788da10272ccfbd3ae5d6114808f5a18733e31",
+    "ts/app/main.ts": "22ce1d3f520e5ee8563449930ff3888cfc496ac71e71aae307d76983ee028ea5",
+    "ts/app/profile.ts": "eba60564da00e89c902e0b96d96999b8272112d300e17b6ed279a6283733c1ab",
+    "ts/app/server-main.ts": "ba9c3b4e4eebb75111039e52c5abe8b5eddc65193169a024c4576859b3402062",
+    "ts/app/startup.ts": "f62889ab4e97c3d3f4e5a1549410c2e219b99d35058b0b00e645f7ca37a81993",
+    "ts/app/transport.ts": "dbbd425099f758b631b550ba12ffeabde9fa3bd2823b828b5bd1ab0e695a32a6",
+    "ts/app/worker.ts": "4d3971f444c716e309d10c863c26187b7d367711a7a738974df2d341836e67c7",
+    "ts/build.ts": "741632f6de505cedfdbcb0023b8e90d4853c78f4c1f470e78359df80ca671ec1",
+    "ts/kernel/arithmetic.ts": "1c2bb6bb437334663c243f3e99a95b9dfb7c248bdf63be0ee6317bd1278b6580",
+    "ts/kernel/bridge.ts": "4e6a29317efc1a4693cd24bf3be98bc7c2d70dfe8259c1862a12f84e54854281",
+    "ts/kernel/certificate_search.ts": "e5e7fd8f9efd3c58c6a9df9c8a74654c5c41f9d90ccfba44086c99050a4ab203",
+    "ts/kernel/demo.ts": "ad43fadbe07d1b0c69fb2ffff4b6f4481d4d8d7b1dadc5c2650d52e33cac8d36",
+    "ts/kernel/errors.ts": "9e37bf865d8bf4ca1424d04cb8a216871efb9bb7d9845b7c961623374c1a317c",
+    "ts/kernel/grammar.ts": "93025a166a29e71528fbd474caf85f51aeb5781fb68b0e47601c7d51f1032b56",
+    "ts/kernel/hooks.ts": "3579b2e2939b9d9f4daa138de1f614b833a8cf9e57d6380395bf7330b9c8de7e",
+    "ts/kernel/interactive/catalog.ts": "76efcccc8e4ce5dd1cf496a0da802b0a910c70ad624ed2af3a1fe0a37f5b331f",
+    "ts/kernel/interactive/checker.ts": "1e26a28ebcad68ec67fa1031082b1e14f5d2a1d55b022441557cc3ae1ab06398",
+    "ts/kernel/interactive/lesson_ai.ts": "a9e634186edd4e591ecee314f18d4a197c9674d9608826d728ff3333c47a800d",
+    "ts/kernel/interactive/lesson_checker.ts": "dfabf648a6a9886525bc364a03128148f7feeca0b3cd518a67cf86ea9edce84e",
+    "ts/kernel/interactive/lessons.ts": "5a8a3c71e9b33137339e8d44567a9b4f766e30ed968532b48f625bc8ddf48c8e",
+    "ts/kernel/interactive/profiles.ts": "7a532b53f0b1ed53f2aaec3a1258bb8426ad5a60b303f4a52ff6742461a81c7d",
+    "ts/kernel/interactive/record.ts": "138537c18c527f94c4cab0472572c377e6d94f621f2514bbc8ff90c6fdf6db10",
+    "ts/kernel/interactive/server.ts": "3ff4b03ddd124bb3aab92cde650c372db5dbed6c09478c124e3a89f759fc1bd8",
+    "ts/kernel/interactive/solver.ts": "85d5d32778a3697f016baf4d273be37d2b58c525235ba46a5f3bfa3fc473d7ba",
+    "ts/kernel/interactive/spectator.ts": "1a0a0a51a57153567395bf826dbf63564c374bf67f395809f75480283c849a23",
+    "ts/kernel/interactive/views.ts": "3d4daac4cbe0b5a4521381701c7499163714c12102b644af0b2cb7ad881dd0f3",
+    "ts/kernel/json.ts": "041772d74caf51c03ef6084c1c00949f347db18cf7943cd6951b9803fd5cd5c4",
+    "ts/kernel/logarithmic.ts": "9c0bb967a77d8ae86275c3388e18a0b6db0694c384857a139644f3e00d421f82",
+    "ts/kernel/logscalar.ts": "50495ff21e8605d9c0417bb5d30fbd22684680ca5af7bc6befd09f4ec164235f",
+    "ts/kernel/lp.ts": "f4ab2cabe39289335952859ad68e78ac18733430e0da8818b03c369fe2fae815",
+    "ts/kernel/notation.ts": "d8ccab51df40f8bc2e4072db4d8bfba8a9426be735b7121e36e5b729d4555ecb",
+    "ts/kernel/play.ts": "c1093c750a84b994ac4f2474e60784de0df68489aeef118d6665974a43074c88",
+    "ts/kernel/polynomial.ts": "dcb434e1dd51d3aa532a691909bc5a2697b352a9a48b3b6dcb0e7e7b1f46d4dd",
+    "ts/kernel/problem.ts": "719ca092d4fe0366ea3c6754587f65faf1e995a4fac80ec16fd0e2bdd95e8673",
+    "ts/kernel/proof.ts": "8a630b45997bb5fbf77f97904ca4d7591d5f0d3ae23c694a08db175740531e99",
+    "ts/kernel/pyrandom.ts": "22f66f805f17dd1f7937d98f59de18588d609579c47ed7a9f24d2af3ab21c236",
+    "ts/kernel/rational.ts": "fedd044d21ccbe00ef86bd102f4b96f42ea5e6e15dd49acc7f7bfcf5600e4633",
+    "ts/kernel/registry.ts": "371ebc1a243f5473e5938e9aa61b6f79706f5a23d3650c9343100e83592e2c45",
+    "ts/kernel/sha256.ts": "45e445c9583779ec6a8af6bce438ab2bf6e007d405d362491edcb61bed42d1ec",
+    "ts/kernel/syntax.ts": "cd15a7cf449fe8921c02eddf21b00d664256af2f099a4a882d2eed04e42eab16",
+    "ts/kernel/synthesis.ts": "cdd13adbba9073c4dacdca2f68e3339d4d44cde645ea172b0a41011442dfe898",
+    "ts/kernel/verification.ts": "161c1635405bada0b45b67d14b8aeb4ba936b57fc6ba689138821f99a3fd4768",
+    "ts/kernel/version.ts": "e44e6a57e1234a1e7a7585dae97a94773082bb0169b27e6f15286acd4251e119",
+    "app-static/kokyuroku/README.md": "2971374fe09e64c56cac74edc53c07ef2913dcfba5e86a9aeee8528fa2a557b9",
+    "app-static/kokyuroku/kokyuroku.css": "e6003d7d4d4dde2a4c08f3c262f612704509d4ffb47895270f097f6f93814fa8",
+    "app-static/kokyuroku/profile.json": "b415db72ab2a2d5eeeb266e033a22496ea2f0a25e985d0504752715e4b23995a",
+    "app-static/kokyuroku/LICENSE": "32c6d3f5e6b4c88627ce2fbc101098fd40efe20b0536d9c4244f8b46d2073271",
+    "app/vendor/LICENSE": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+    "app/vendor/fonts/KaTeX_AMS-Regular.ttf": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
+    "app/vendor/fonts/KaTeX_AMS-Regular.woff": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
+    "app/vendor/fonts/KaTeX_AMS-Regular.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+    "app/vendor/fonts/KaTeX_Caligraphic-Bold.ttf": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268",
+    "app/vendor/fonts/KaTeX_Caligraphic-Bold.woff": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed",
+    "app/vendor/fonts/KaTeX_Caligraphic-Bold.woff2": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+    "app/vendor/fonts/KaTeX_Caligraphic-Regular.ttf": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7",
+    "app/vendor/fonts/KaTeX_Caligraphic-Regular.woff": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c",
+    "app/vendor/fonts/KaTeX_Caligraphic-Regular.woff2": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+    "app/vendor/fonts/KaTeX_Fraktur-Bold.ttf": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1",
+    "app/vendor/fonts/KaTeX_Fraktur-Bold.woff": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb",
+    "app/vendor/fonts/KaTeX_Fraktur-Bold.woff2": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+    "app/vendor/fonts/KaTeX_Fraktur-Regular.ttf": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3",
+    "app/vendor/fonts/KaTeX_Fraktur-Regular.woff": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463",
+    "app/vendor/fonts/KaTeX_Fraktur-Regular.woff2": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+    "app/vendor/fonts/KaTeX_Main-Bold.ttf": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8",
+    "app/vendor/fonts/KaTeX_Main-Bold.woff": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822",
+    "app/vendor/fonts/KaTeX_Main-Bold.woff2": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+    "app/vendor/fonts/KaTeX_Main-BoldItalic.ttf": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f",
+    "app/vendor/fonts/KaTeX_Main-BoldItalic.woff": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c",
+    "app/vendor/fonts/KaTeX_Main-BoldItalic.woff2": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+    "app/vendor/fonts/KaTeX_Main-Italic.ttf": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a",
+    "app/vendor/fonts/KaTeX_Main-Italic.woff": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf",
+    "app/vendor/fonts/KaTeX_Main-Italic.woff2": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+    "app/vendor/fonts/KaTeX_Main-Regular.ttf": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830",
+    "app/vendor/fonts/KaTeX_Main-Regular.woff": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc",
+    "app/vendor/fonts/KaTeX_Main-Regular.woff2": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+    "app/vendor/fonts/KaTeX_Math-BoldItalic.ttf": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5",
+    "app/vendor/fonts/KaTeX_Math-BoldItalic.woff": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e",
+    "app/vendor/fonts/KaTeX_Math-BoldItalic.woff2": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+    "app/vendor/fonts/KaTeX_Math-Italic.ttf": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a",
+    "app/vendor/fonts/KaTeX_Math-Italic.woff": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571",
+    "app/vendor/fonts/KaTeX_Math-Italic.woff2": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+    "app/vendor/fonts/KaTeX_SansSerif-Bold.ttf": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0",
+    "app/vendor/fonts/KaTeX_SansSerif-Bold.woff": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba",
+    "app/vendor/fonts/KaTeX_SansSerif-Bold.woff2": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+    "app/vendor/fonts/KaTeX_SansSerif-Italic.ttf": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083",
+    "app/vendor/fonts/KaTeX_SansSerif-Italic.woff": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2",
+    "app/vendor/fonts/KaTeX_SansSerif-Italic.woff2": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+    "app/vendor/fonts/KaTeX_SansSerif-Regular.ttf": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad",
+    "app/vendor/fonts/KaTeX_SansSerif-Regular.woff": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605",
+    "app/vendor/fonts/KaTeX_SansSerif-Regular.woff2": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+    "app/vendor/fonts/KaTeX_Script-Regular.ttf": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67",
+    "app/vendor/fonts/KaTeX_Script-Regular.woff": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a",
+    "app/vendor/fonts/KaTeX_Script-Regular.woff2": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+    "app/vendor/fonts/KaTeX_Size1-Regular.ttf": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b",
+    "app/vendor/fonts/KaTeX_Size1-Regular.woff": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9",
+    "app/vendor/fonts/KaTeX_Size1-Regular.woff2": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+    "app/vendor/fonts/KaTeX_Size2-Regular.ttf": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b",
+    "app/vendor/fonts/KaTeX_Size2-Regular.woff": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d",
+    "app/vendor/fonts/KaTeX_Size2-Regular.woff2": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+    "app/vendor/fonts/KaTeX_Size3-Regular.ttf": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082",
+    "app/vendor/fonts/KaTeX_Size3-Regular.woff": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949",
+    "app/vendor/fonts/KaTeX_Size3-Regular.woff2": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+    "app/vendor/fonts/KaTeX_Size4-Regular.ttf": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877",
+    "app/vendor/fonts/KaTeX_Size4-Regular.woff": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58",
+    "app/vendor/fonts/KaTeX_Size4-Regular.woff2": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+    "app/vendor/fonts/KaTeX_Typewriter-Regular.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
+    "app/vendor/fonts/KaTeX_Typewriter-Regular.woff": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7",
+    "app/vendor/fonts/KaTeX_Typewriter-Regular.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+    "app/vendor/katex.min.css": "180c2d77d434d7da51d6625c50a964d4fd6fdbdb9bc8796a0a016c30c49931fb",
+    "app/vendor/katex.min.js": "2ec5916941ef4383e0314eaabcc712301b06001d9fb68e08d751d2bae5a27a1a"
+  },
+  "files": {
+    ".nojekyll": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "HIGHS-LICENSE": {
+      "sha256": "9f8d8dcf27789ac59c0d7c732d6682f148804a5e99d83e9f207d6c1882b98bfa",
+      "bytes": 1090
+    },
+    "LICENSE": {
+      "sha256": "32c6d3f5e6b4c88627ce2fbc101098fd40efe20b0536d9c4244f8b46d2073271",
+      "bytes": 1070
+    },
+    "README.md": {
+      "sha256": "2971374fe09e64c56cac74edc53c07ef2913dcfba5e86a9aeee8528fa2a557b9",
+      "bytes": 3103
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "sha256": "9c72cdfdd11288049df683035739301bbc7d7372dd1448f4209cf10e43adc825",
+      "bytes": 415
+    },
+    "app.js": {
+      "sha256": "789470007cf37d99754497648244e46d23874f3de0e9db8513cd03a5a02a8bb5",
+      "bytes": 140055
+    },
+    "highs.wasm": {
+      "sha256": "f13134e3e335e7bad984ff12abeb41e86e0eeeb1752ae8a85322cc6839df8acd",
+      "bytes": 3531401
+    },
+    "index.html": {
+      "sha256": "7acfefdd769b0f3b295f0ca25f73432b6df8871c09081384854c49d73f0759a9",
+      "bytes": 24571
+    },
+    "kokyuroku.css": {
+      "sha256": "e6003d7d4d4dde2a4c08f3c262f612704509d4ffb47895270f097f6f93814fa8",
+      "bytes": 21615
+    },
+    "lang.js": {
+      "sha256": "d985df617bd84850381a60f17c8d63ccd63509001f2b48ffc0654e13ec30c82f",
+      "bytes": 88735
+    },
+    "startup.js": {
+      "sha256": "cbdbccefe9446fde0efa99a1fe17a7bbdaa684fa145b5f81a76d830e0f7c821d",
+      "bytes": 1814
+    },
+    "style.css": {
+      "sha256": "04d46fe43c8e88d1f93466dbd688153530e2f537b816ebbe58031a6fea46e473",
+      "bytes": 18678
+    },
+    "vendor/LICENSE": {
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+      "bytes": 1107
+    },
+    "vendor/fonts/KaTeX_AMS-Regular.ttf": {
+      "sha256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
+      "bytes": 63632
+    },
+    "vendor/fonts/KaTeX_AMS-Regular.woff": {
+      "sha256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
+      "bytes": 33516
+    },
+    "vendor/fonts/KaTeX_AMS-Regular.woff2": {
+      "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+      "bytes": 28076
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Bold.ttf": {
+      "sha256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268",
+      "bytes": 12368
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Bold.woff": {
+      "sha256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed",
+      "bytes": 7716
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Bold.woff2": {
+      "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+      "bytes": 6912
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Regular.ttf": {
+      "sha256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7",
+      "bytes": 12344
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Regular.woff": {
+      "sha256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c",
+      "bytes": 7656
+    },
+    "vendor/fonts/KaTeX_Caligraphic-Regular.woff2": {
+      "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+      "bytes": 6908
+    },
+    "vendor/fonts/KaTeX_Fraktur-Bold.ttf": {
+      "sha256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1",
+      "bytes": 19584
+    },
+    "vendor/fonts/KaTeX_Fraktur-Bold.woff": {
+      "sha256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb",
+      "bytes": 13296
+    },
+    "vendor/fonts/KaTeX_Fraktur-Bold.woff2": {
+      "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+      "bytes": 11348
+    },
+    "vendor/fonts/KaTeX_Fraktur-Regular.ttf": {
+      "sha256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3",
+      "bytes": 19572
+    },
+    "vendor/fonts/KaTeX_Fraktur-Regular.woff": {
+      "sha256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463",
+      "bytes": 13208
+    },
+    "vendor/fonts/KaTeX_Fraktur-Regular.woff2": {
+      "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+      "bytes": 11316
+    },
+    "vendor/fonts/KaTeX_Main-Bold.ttf": {
+      "sha256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8",
+      "bytes": 51336
+    },
+    "vendor/fonts/KaTeX_Main-Bold.woff": {
+      "sha256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822",
+      "bytes": 29912
+    },
+    "vendor/fonts/KaTeX_Main-Bold.woff2": {
+      "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+      "bytes": 25324
+    },
+    "vendor/fonts/KaTeX_Main-BoldItalic.ttf": {
+      "sha256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f",
+      "bytes": 32968
+    },
+    "vendor/fonts/KaTeX_Main-BoldItalic.woff": {
+      "sha256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c",
+      "bytes": 19412
+    },
+    "vendor/fonts/KaTeX_Main-BoldItalic.woff2": {
+      "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+      "bytes": 16780
+    },
+    "vendor/fonts/KaTeX_Main-Italic.ttf": {
+      "sha256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a",
+      "bytes": 33580
+    },
+    "vendor/fonts/KaTeX_Main-Italic.woff": {
+      "sha256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf",
+      "bytes": 19676
+    },
+    "vendor/fonts/KaTeX_Main-Italic.woff2": {
+      "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+      "bytes": 16988
+    },
+    "vendor/fonts/KaTeX_Main-Regular.ttf": {
+      "sha256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830",
+      "bytes": 53580
+    },
+    "vendor/fonts/KaTeX_Main-Regular.woff": {
+      "sha256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc",
+      "bytes": 30772
+    },
+    "vendor/fonts/KaTeX_Main-Regular.woff2": {
+      "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+      "bytes": 26272
+    },
+    "vendor/fonts/KaTeX_Math-BoldItalic.ttf": {
+      "sha256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5",
+      "bytes": 31196
+    },
+    "vendor/fonts/KaTeX_Math-BoldItalic.woff": {
+      "sha256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e",
+      "bytes": 18668
+    },
+    "vendor/fonts/KaTeX_Math-BoldItalic.woff2": {
+      "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+      "bytes": 16400
+    },
+    "vendor/fonts/KaTeX_Math-Italic.ttf": {
+      "sha256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a",
+      "bytes": 31308
+    },
+    "vendor/fonts/KaTeX_Math-Italic.woff": {
+      "sha256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571",
+      "bytes": 18748
+    },
+    "vendor/fonts/KaTeX_Math-Italic.woff2": {
+      "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+      "bytes": 16440
+    },
+    "vendor/fonts/KaTeX_SansSerif-Bold.ttf": {
+      "sha256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0",
+      "bytes": 24504
+    },
+    "vendor/fonts/KaTeX_SansSerif-Bold.woff": {
+      "sha256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba",
+      "bytes": 14408
+    },
+    "vendor/fonts/KaTeX_SansSerif-Bold.woff2": {
+      "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+      "bytes": 12216
+    },
+    "vendor/fonts/KaTeX_SansSerif-Italic.ttf": {
+      "sha256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083",
+      "bytes": 22364
+    },
+    "vendor/fonts/KaTeX_SansSerif-Italic.woff": {
+      "sha256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2",
+      "bytes": 14112
+    },
+    "vendor/fonts/KaTeX_SansSerif-Italic.woff2": {
+      "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+      "bytes": 12028
+    },
+    "vendor/fonts/KaTeX_SansSerif-Regular.ttf": {
+      "sha256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad",
+      "bytes": 19436
+    },
+    "vendor/fonts/KaTeX_SansSerif-Regular.woff": {
+      "sha256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605",
+      "bytes": 12316
+    },
+    "vendor/fonts/KaTeX_SansSerif-Regular.woff2": {
+      "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+      "bytes": 10344
+    },
+    "vendor/fonts/KaTeX_Script-Regular.ttf": {
+      "sha256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67",
+      "bytes": 16648
+    },
+    "vendor/fonts/KaTeX_Script-Regular.woff": {
+      "sha256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a",
+      "bytes": 10588
+    },
+    "vendor/fonts/KaTeX_Script-Regular.woff2": {
+      "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+      "bytes": 9644
+    },
+    "vendor/fonts/KaTeX_Size1-Regular.ttf": {
+      "sha256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b",
+      "bytes": 12228
+    },
+    "vendor/fonts/KaTeX_Size1-Regular.woff": {
+      "sha256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9",
+      "bytes": 6496
+    },
+    "vendor/fonts/KaTeX_Size1-Regular.woff2": {
+      "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+      "bytes": 5468
+    },
+    "vendor/fonts/KaTeX_Size2-Regular.ttf": {
+      "sha256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b",
+      "bytes": 11508
+    },
+    "vendor/fonts/KaTeX_Size2-Regular.woff": {
+      "sha256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d",
+      "bytes": 6188
+    },
+    "vendor/fonts/KaTeX_Size2-Regular.woff2": {
+      "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+      "bytes": 5208
+    },
+    "vendor/fonts/KaTeX_Size3-Regular.ttf": {
+      "sha256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082",
+      "bytes": 7588
+    },
+    "vendor/fonts/KaTeX_Size3-Regular.woff": {
+      "sha256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949",
+      "bytes": 4420
+    },
+    "vendor/fonts/KaTeX_Size3-Regular.woff2": {
+      "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+      "bytes": 3624
+    },
+    "vendor/fonts/KaTeX_Size4-Regular.ttf": {
+      "sha256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877",
+      "bytes": 10364
+    },
+    "vendor/fonts/KaTeX_Size4-Regular.woff": {
+      "sha256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58",
+      "bytes": 5980
+    },
+    "vendor/fonts/KaTeX_Size4-Regular.woff2": {
+      "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+      "bytes": 4928
+    },
+    "vendor/fonts/KaTeX_Typewriter-Regular.ttf": {
+      "sha256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
+      "bytes": 27556
+    },
+    "vendor/fonts/KaTeX_Typewriter-Regular.woff": {
+      "sha256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7",
+      "bytes": 16028
+    },
+    "vendor/fonts/KaTeX_Typewriter-Regular.woff2": {
+      "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+      "bytes": 13568
+    },
+    "vendor/katex.min.css": {
+      "sha256": "180c2d77d434d7da51d6625c50a964d4fd6fdbdb9bc8796a0a016c30c49931fb",
+      "bytes": 24727
+    },
+    "vendor/katex.min.js": {
+      "sha256": "2ec5916941ef4383e0314eaabcc712301b06001d9fb68e08d751d2bae5a27a1a",
+      "bytes": 272179
+    },
+    "worker.js": {
+      "sha256": "acf23201837282e5f4d8f1bab04ac8dc63d7175ef6be8f13bac226a3b21cb3c0",
+      "bytes": 317836
+    }
+  }
+}

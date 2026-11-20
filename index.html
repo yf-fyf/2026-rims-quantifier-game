@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantifier Game</title><meta name="description" content="Quantifier Game: multiply quantified statements played as games between a Prover and a Refuter, with strategy synthesis, global verification and proofs, all in the browser. Demo for RIMS K&#244;ky&#251;roku."><link rel="canonical" href="https://yf-fyf.github.io/2026-rims-quantifier-game/"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23404040%27/%3E%3Ctext x=%2716%27 y=%2724%27 font-size=%2722%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27%3E%E2%88%80%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./vendor/katex.min.css"><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./kokyuroku.css">
+  <script defer src="./vendor/katex.min.js"></script><script>window.KOKYUROKU_PROFILE={"distribution": "rims-kokyuroku-site", "version": "kokyuroku-43", "release_date": "2026-11-20", "groups": [{"title": "数列の極限（ε-N）", "items": [{"key": "limit-0", "problem": "sample-s01", "title": "1/n は 0 に収束するか？", "aliases": ["s01"]}, {"key": "limit-1", "problem": "sample-s03", "title": "1/n は 1 に収束するか？", "aliases": ["s03"]}]}, {"title": "連続性（ε-δ）", "items": [{"key": "cont-linear", "problem": "sample-s04", "title": "2x は x=1 で連続か？", "aliases": ["s04"]}, {"key": "cont-square", "problem": "calculus-square-continuity", "title": "x² は x=2 で連続か？"}, {"key": "cont-jump", "problem": "epsilon-delta-jump", "title": "x=0 だけ値を変えた関数は x=0 で連続か？"}]}, {"title": "有限（真偽値）", "items": [{"key": "bool-same", "problem": "sample-w01", "title": "入力と同じ真偽値を返せるか？", "prefix": "∀x∃y"}, {"key": "bool-order", "problem": "boolean-order", "title": "一つの値ですべての入力と一致できるか？", "prefix": "∃y∀x"}]}, {"title": "計算量（Big-O）", "items": [{"key": "bigo-square", "problem": "sample-s05", "title": "8n²+100n+543 は O(n²) か？", "aliases": ["s05"]}, {"key": "bigo-linear", "problem": "big-o-linear", "title": "n²+n+1 は O(n) か？"}]}], "source_digest": "edab0aa414be6735a44f3f39b025753db1cd8412871e6b048127a8a4b44d17ba"};</script><script defer src="./startup.js"></script>
+</head>
+<body>
+<p id="static-status" role="status" data-quiet hidden>対局の準備をしています…</p>
+<noscript data-i18n-skip>Enable JavaScript in your browser to use this demo. <span lang="ja">このデモを使うにはブラウザのJavaScriptを有効にしてください。</span></noscript>
+  <header class="site-header"><div><strong>Quantifier Game</strong></div><div class="header-end"><span class="mode">プロトタイプデモ</span><div class="language-switch" role="group" aria-label="Language / 言語" data-i18n-skip><button type="button" data-language="en" lang="en" aria-pressed="false">English</button><button type="button" data-language="ja" lang="ja" aria-pressed="true">日本語</button></div></div></header>
+  <main>
+    <div id="conditions-summary" class="conditions-summary" hidden><span id="conditions-text"></span><button id="change-conditions" aria-controls="setup-card" aria-expanded="false">条件を変更</button></div>
+    <section id="setup-card" class="setup card" aria-labelledby="setup-title">
+      <div class="section-label" id="setup-title">題材と条件</div><div class="example-picker"><div class="picker-list" role="group" aria-label="例"><div class="picker-group"><div class="picker-group-title">数列の極限（ε-N）</div><button type="button" class="picker-item" data-example="limit-0" aria-pressed="true"><span>1/n は 0 に収束するか？</span></button><button type="button" class="picker-item" data-example="limit-1" aria-pressed="false"><span>1/n は 1 に収束するか？</span></button></div><div class="picker-group"><div class="picker-group-title">連続性（ε-δ）</div><button type="button" class="picker-item" data-example="cont-linear" aria-pressed="false"><span>2x は x=1 で連続か？</span></button><button type="button" class="picker-item" data-example="cont-square" aria-pressed="false"><span>x² は x=2 で連続か？</span></button><button type="button" class="picker-item" data-example="cont-jump" aria-pressed="false"><span>x=0 だけ値を変えた関数は x=0 で連続か？</span></button></div><div class="picker-group"><div class="picker-group-title">有限（真偽値）</div><button type="button" class="picker-item" data-example="bool-same" aria-pressed="false"><span>入力と同じ真偽値を返せるか？</span><span class="picker-prefix">∀x∃y</span></button><button type="button" class="picker-item" data-example="bool-order" aria-pressed="false"><span>一つの値ですべての入力と一致できるか？</span><span class="picker-prefix">∃y∀x</span></button></div><div class="picker-group"><div class="picker-group-title">計算量（Big-O）</div><button type="button" class="picker-item" data-example="bigo-square" aria-pressed="false"><span>8n²+100n+543 は O(n²) か？</span></button><button type="button" class="picker-item" data-example="bigo-linear" aria-pressed="false"><span>n²+n+1 は O(n) か？</span></button></div></div><div class="picker-detail" id="picker-detail" aria-live="polite" aria-busy="true"><div class="picker-topic muted">数列の極限（ε-N）</div><h2 class="picker-title">1/n は 0 に収束するか？</h2><div class="picker-formula formula"><span class="skeleton skeleton-formula" aria-hidden="true"></span></div><p class="picker-error" role="status" hidden></p><fieldset class="picker-polarity"><legend>扱う式</legend><label><input type="radio" name="picker-polarity" value="original" checked>肯定形</label><label><input type="radio" name="picker-polarity" value="dual">否定形</label></fieldset><div class="picker-actions"><button type="button" id="picker-open" class="primary" disabled><span class="label-ready">この例で開く</span><span class="label-wait">準備中…</span></button><button type="button" id="picker-customize" disabled>この例の値を変える</button></div></div></div>
+      <details id="advanced-setup" class="advanced-setup"><summary>詳細設定：パラメータ付きの問題</summary>
+      <div class="entry-tabs" role="tablist" aria-label="題材の選び方"><button id="entry-samples" role="tab" aria-selected="true" tabindex="0">サンプルから始める</button><button id="entry-custom" role="tab" aria-selected="false" tabindex="-1">条件を変えて試す</button></div>
+      <p id="entry-help" class="muted">式と条件が決まった例で、具体値を選ぶ対局から始めます。</p>
+      <div id="entry-panel" role="tabpanel" aria-labelledby="entry-samples">
+        <div class="setup-row"><label><span id="problem-select-label">サンプル問題</span><select id="problem-select"></select></label><label>扱う式<select id="polarity-select"><option value="original">肯定形</option><option value="dual">否定形</option></select></label><button id="open-problem" class="primary">この例で開く</button></div>
+        <div class="problem-preview"><span id="preview-code" class="eyebrow"></span><div id="preview-formula" class="formula"></div><p id="preview-description"></p><p id="preview-error" role="status" hidden></p></div>
+        <div id="fixed-parameters" class="fixed-parameters"><strong>変更できるパラメータ：なし</strong><button id="customize-sample">この例をカスタム</button></div>
+        <details id="parameter-details" hidden open><summary>パラメータを変更する</summary><p id="parameter-form" class="parameter-form" hidden></p><label id="order-field" hidden>評価する order<select id="order-select"><option value="big-o-linear">O(n)</option><option value="big-o-quadratic">O(n²)</option><option value="big-o-cubic">O(n³)</option><option value="big-o-n-log-n">O(n log₂ n)（二次係数は正）</option></select></label><div id="parameters" class="parameter-grid"></div><p class="muted">整数・分数・小数を入力できます。小数も厳密な有理数として扱います。</p></details>
+        <p id="draft-note" class="muted" hidden></p>
+      </div>
+      </details>
+      
+      </section>
+    <div id="error" role="alert" hidden></div>
+    <section id="lesson" hidden>
+      <div class="lesson-heading"><div><span id="view-label" class="eyebrow"></span><h1 id="lesson-title"></h1></div><div id="models" class="model-lines"></div></div>
+      <div class="lesson-question"><div id="lesson-question" class="formula"></div><button id="customize-current">この条件をカスタム</button></div>
+      <section id="original-formula-band" class="original-formula-band" aria-labelledby="original-formula-title">
+        <strong id="original-formula-title">命題 Φ</strong><div id="formula" class="formula" tabindex="0"></div>
+        <div id="play-formula-band" hidden><strong>否定形 Ψ</strong><div id="play-formula" class="formula" tabindex="0"></div></div><details id="skolem-band" class="skolem-band" hidden><summary>スコーレム標準形</summary><div id="skolem-forms"></div></details>
+      </section>
+      <div class="mode-tabs" role="tablist" aria-label="対局の見方">
+        <button id="tab-individual" role="tab" aria-controls="panel-individual" aria-selected="true" tabindex="0"><strong>個別対局</strong><span>具体的な値で一局ずつ確かめる</span></button>
+        <button id="tab-general" role="tab" aria-controls="panel-general" aria-selected="false" tabindex="-1"><strong>一般対局</strong><span>必勝戦略の式を探して検証する</span></button>
+        <button id="tab-spectate" role="tab" aria-controls="panel-spectate" aria-selected="false" tabindex="-1"><strong>観戦</strong><span>関数の応答に基づく証明を観る</span></button>
+      </div>
+      <p id="mode-help" class="mode-help"></p><button id="jump-evidence" class="evidence-jump" aria-controls="constraints-title"><span id="mobile-record-count"></span> · 一覧を見る</button>
+      <div class="workspace">
+        <div class="work-left">
+          <section id="panel-individual" class="card mode-panel" role="tabpanel" aria-labelledby="tab-individual">
+            <div class="panel-heading"><h2 id="play-title">今の局</h2><span id="round-label" class="eyebrow"></span></div>
+            <div id="lesson-progress" class="lesson-progress" aria-labelledby="progress-title">
+              <strong id="progress-title"></strong><p id="progress-action" hidden></p><p id="progress-goal" hidden></p><p id="progress-note" class="muted"></p>
+            </div>
+            <div id="past-round" class="status idle" hidden>前の局を表示しています。<button id="return-current">今の局に戻る</button></div>
+            <div class="chain-heading"><strong>代入の流れ</strong><div class="button-row"><button class="original-jump">元の式へ</button><button id="jump-latest" hidden>新しい手へ</button></div></div>
+            <div id="turn-track" class="turn-track"></div>
+            <div id="moves" class="formula-chain"></div>
+            <div id="play-state" class="status" aria-live="polite"></div>
+            <div id="live-controls">
+              <div id="next-turn" class="next-turn"></div>
+              <p id="play-hint" class="muted"></p><button id="start-play" class="primary">対局を始める</button>
+              <p id="ai-state" class="status thinking" role="status" aria-live="polite" hidden></p>
+              <form id="move-form"><div id="move-input"></div><p id="move-error" role="alert" hidden></p><button class="primary" type="submit" id="confirm-move">この手を確定</button></form>
+              <div class="button-row"><button id="retry-play" class="primary" hidden>同じ挑戦で答え直す</button><button id="reset-play">新しい局を始める</button><button id="go-general" hidden>溜まった実例から一般対局へ</button></div>
+              <p id="retry-note" class="muted" hidden>答え直す応答より前の入力を残します。後続のAIの手は、許可条件に従って選び直します。</p>
+              <details id="truth-details"><summary>局面と式全体の真偽を確認する</summary><p id="truth-state"></p></details>
+              <details id="lesson-settings" hidden><summary>発表・教員用の練習設定</summary>
+                <div class="lesson-settings-row"><label>挑戦の進め方<select id="lesson-mode"><option value="auto">達成に合わせて段階を進める</option><option value="fixed">指定した段階で続ける</option><option value="free">自由に対局する</option></select></label>
+                <label>始める段階<select id="lesson-stage"><option value="1">1 · 基本の境界</option><option value="2">2 · 応答の調整</option><option value="3">3 · 先の振る舞い</option></select></label></div>
+                <div class="button-row"><button id="apply-lesson">この設定で新しい挑戦</button><button id="new-lesson">段階1から新しい練習</button></div>
+                <p class="muted">設定の変更は新しい挑戦から反映します。保存した局と、同じ挑戦への答え直しの条件は残ります。</p>
+              </details>
+              <details hidden><summary>対局の操作・手の選び直し</summary><label>手の入力<select id="interaction-mode"><option value="ai">反証者AIと対局</option><option value="manual">教員が両側を入力</option></select></label><label>残す手の数<input id="fork-position" type="number" value="0" min="0"></label><button id="fork-play">この位置から答え直す</button><p class="muted">元の局を残して分岐します。対局の途中も保存できます。</p></details>
+            </div>
+          </section>
+          <section id="panel-general" class="card mode-panel" role="tabpanel" aria-labelledby="tab-general" hidden>
+            <h2 id="search-title">戦略の合成</h2><p>棋譜にある挑戦に勝つ関数を探し、その候補がすべての許された挑戦に勝つか検証します。応答値は棋譜と異なって構いません。</p>
+            <p id="search-inputs" class="muted"></p><button id="synthesize" class="primary">戦略を合成する</button>
+            <details hidden><summary>探索の上限を調整する</summary><div class="search-settings"><label>式の総費用<input id="max-cost" type="number" value="6" min="1" max="8"></label><label>秒数<input id="seconds" type="number" value="30" min="1" max="120"></label><label>候補数<input id="max-candidates" type="number" value="10000" min="1" max="50000"></label></div></details>
+            <div id="search-status" class="status idle" aria-live="polite">まだ合成していません</div>
+            <div id="result" hidden>
+              <details id="history-details" open><summary id="history-title">実際の候補と反例の履歴</summary><p class="muted">完了した探索の履歴をたどります。反例は、その候補が失敗する挑戦です。</p>
+                <div class="history-controls"><label>探索側<select id="history-polarity"><option value="original">命題</option><option value="dual">否定形</option></select></label></div><p id="history-outcome" class="history-outcome"></p><div id="history-filter" class="history-filter" role="group" aria-label="表示する候補"></div>
+                <div class="history-overview" id="history-overview"><canvas role="img"></canvas><div class="history-overview-axis" aria-hidden="true"><span></span><span></span></div></div><div id="history" class="candidate-list history-list" role="group" aria-label="候補"></div><div id="candidate-stage" class="candidate-stage"></div>
+                <div class="button-row"><button id="candidate-prev">前の候補を説明</button><span id="candidate-position"></span><button id="candidate-next">次の候補を説明</button></div>
+                
+              </details>
+              <h3>全域検査の結果</h3><div id="guarantee" class="status"></div><div id="relation"></div><div id="witnesses"></div><details id="skolem-instance" class="skolem-instance" hidden><summary>スコーレム標準形に代入した式</summary><div id="skolem-instance-formula" class="formula" tabindex="0"></div></details><div id="metrics" class="metrics"></div><details class="verification-help"><summary>全域検証とは</summary><p>棋譜にある局に勝つ式は、たまたまその局に勝っているだけかもしれません。全域検証では、ルールで許された<strong>すべての</strong>挑戦（多くは無限にあります）に対して、その式が勝つことを確かめます。無限個を一つずつ試すことはできないので、次のようにします。</p><ul><li>選べる値が有限のときは、すべての組を並べて確かめます。</li><li>無限のときは、まず具体的な値で負ける例（反例）を探します。見つからなければ「どの値でも勝つ」ことの証拠を作り、その証拠が正しいことを計算機で厳密に検算します。</li></ul><p>反例が見つかった候補は棄却し、その反例を次の候補を試す挑戦に加えます。証拠も反例も得られなかった候補は「検証未確定」として残し、成功とは数えません。</p><details class="verification-detail"><summary>厳密には</summary><p>無限の定義域では、「候補が勝つ」という主張を量化子のない算術の条件に直し、その否定を、床関数・絶対値・場合分けによって有限個の場合に分けます。各場合は多項式の前提 P ≥ 0、S &gt; 0、E = 0 の系で、これが矛盾することを、前提の積に非負の有理係数を掛けた和についての恒等式（Positivstellensatz 型の証拠。既定では次数3まで）で示します。</p><p>係数は線形計画（HiGHS）で数値的に提案し、有理数に復元したうえで、恒等式が厳密に成り立つことを検算します。数値計算は証拠を探すためだけに使い、受理の判断は有理数の検算だけで行います。受理した後、証拠を独立した検査器で再検査し、生成した証明も検査します。</p><p>有限の定義域では、全挑戦を列挙した表が証拠です。O(n log n) の例では、対数を含む主張を多項式の十分条件に移してから、同じ検査を行います。</p></details></details>
+              <div class="button-row"><button id="go-spectate" class="primary">この戦略を観戦する</button><button id="go-proof">証明を見る</button></div>
+
+            </div>
+          </section>
+          <section id="panel-spectate" class="card mode-panel" role="tabpanel" aria-labelledby="tab-spectate" hidden>
+            <h2 id="replay-title">自動対局</h2>
+            <div id="spectate-empty" class="status idle">一般対局で全域検査が通ると、合成した戦略を観戦できます。<button id="spectate-to-general">一般対局へ</button></div>
+            <div id="spectate-ready" hidden><p id="spectate-context"></p>
+              <div id="spectate-strategy" class="spectate-strategy"></div>
+              <div class="spectate-controls"><button id="spectate-start" class="primary">ランダム対局を観戦</button><label>対局の速さ<select id="spectate-speed"><option value="1800">ゆっくり</option><option value="750" selected>ふつう</option><option value="450">速い</option></select></label><span id="spectate-live" role="status">停止中</span></div>
+              <p class="muted">一局ごとに、選ばれた値と勝敗を一行ずつ追加します。行を選ぶと、その局の代入過程を詳しく見られます。</p>
+              <div class="panel-heading"><h3 id="spectate-log-title">対局ログ</h3><span id="spectate-count" class="count">0 局</span></div>
+              <p id="spectate-log-empty" class="muted">観戦を始めると、ここに対局が積み重なります。</p>
+              <div id="spectate-rounds" class="spectate-rounds" role="log" aria-labelledby="spectate-log-title" aria-live="polite" aria-relevant="additions" tabindex="0"></div>
+              <details id="spectate-custom"><summary>挑戦を指定して見る</summary><label>過去の局と同じ挑戦を選ぶ<select id="replay-source"></select></label>
+              <form id="challenge-form"><div id="challenge-inputs" class="parameter-grid"></div><button class="primary" type="submit">この挑戦で一局を見る</button></form>
+              <p class="muted">指定した挑戦への応答を計算し、対局ログに追加します。</p></details>
+              <p id="replay-pending" class="muted" hidden>挑戦を変更しました。「この挑戦で一局を見る」で新しい記録を追加します。</p>
+              <details id="spectate-detail"><summary>選んだ局の代入過程を見る</summary>
+              <label id="replay-history-label" hidden>前に観戦した局を選ぶ<select id="replay-history"></select></label>
+              <div class="chain-heading"><strong>観戦する式</strong><button class="original-jump">題材の元の式へ</button></div><div id="replay-formula" class="formula"></div>
+              <div id="replay-state" class="status idle">まだ対局がありません</div><div id="replay-moves"></div>
+              <div class="button-row"><button id="replay-prev" disabled>一手戻る</button><button id="replay-next" disabled>次の一手</button><button id="replay-auto" disabled>この局を再生</button><span id="replay-position" class="muted"></span></div>
+              <button id="spectate-proof">下の証明と手番の対応を見る</button>
+              </details>
+            </div>
+          </section>
+          <details id="plot-card" class="card plot-card" open><summary id="plot-title">対局の図 <span id="plot-source" class="muted">現在の具体値</span></summary><canvas id="plot" width="660" height="360" aria-label="モデルの値と許される範囲の図"></canvas><div id="finite-diagram" class="dependency-diagram" hidden></div><p id="plot-note" class="muted"></p></details>
+        </div>
+        <aside class="evidence-rail card" aria-labelledby="constraints-title">
+          <div class="panel-heading"><h2 id="constraints-title" tabindex="-1">溜まった制約・実例</h2><span id="constraint-count" class="count"></span></div><p id="constraint-scope" class="muted"></p>
+          <p class="legend"><span class="role-opponent">反証者／挑戦</span><span class="role-prover">証明者／応答</span></p>
+          <div id="round-table" class="table-scroll"></div><div class="button-row"><button id="rounds-prev">前の局</button><span id="rounds-page" class="muted"></span><button id="rounds-next">次の局</button></div>
+          <p class="muted">同じ挑戦への再戦条件として使います。途中の局は仮行として残し、制約へ投入しません。</p>
+          <div id="counterexamples-section" hidden><h3>候補への反例</h3><p id="counterexample-scope" class="muted"></p><div id="counterexamples"></div></div>
+          
+        </aside>
+      </div>
+      <section id="proof-section" class="card" hidden aria-labelledby="proof-title"><h2 id="proof-title">証明</h2><p id="proof-target"></p><div class="proof-grid"><div><h3>合成した戦略から生成した証明</h3><div id="proof-readable"></div></div><div><h3>具体的な手と、一般の量化の対応</h3><div id="proof-correspondence" class="status idle"></div><div id="proof-turns"></div><details><summary>量化子を戻す導出</summary><div id="proof-quantifiers"></div></details><details><summary>全域検査の根拠</summary><div id="proof-evidence"></div></details></div></div></section>
+    </section>
+  </main>
+  <footer>対局は厳密な値で判定します。図は表示用の近似です。<a href="./vendor/LICENSE">数式表示：KaTeX</a><span class="kokyuroku-version">kokyuroku-43（2026-11-20） · ソース edab0aa414be</span></footer>
+<script src="./lang.js"></script>
+</body>
+</html>
